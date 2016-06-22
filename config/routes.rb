@@ -1,14 +1,25 @@
 Rails.application.routes.draw do
+#<<<<<<< HEAD
   get 'information/index'
 
 #<<<<<<< HEAD
   get 'mypage/index'
 
+  get 'top/info'
+
 #=======
   devise_for :users
   resources :users
 
-  get 'top/info'
+#=======
+#<<<<<<< HEAD
+  resources :comments
+#=======
+  #devise_for :users
+  #resources :users
+#>>>>>>> 5ba7381dab532c40fa63fb2e120e3e9dc78141c0
+#>>>>>> 13ff64feb48dd265d1dc8b09ddcda882b2089080
+
 
   root to: redirect('/top/info')
   # The priority is based upon order of creation: first created -> highest priority.
