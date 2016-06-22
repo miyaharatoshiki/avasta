@@ -1,5 +1,33 @@
-<h1>New Tag</h1>
+<h3>タグの追加</h3>
 
+<!--
 <%= render 'form' %>
+-->
+
+<%= form_for(@tag) do |f| %>
+  <% if @tag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tag.errors.count, "error") %> prohibited this tag from being saved:</h2>
+
+      <ul>
+      <% @tag.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :タグの番号 %><br>
+    <%= f.number_field :tag_id %>
+  </div>
+  <div class="field">
+    <%= f.label :タグの名前 %><br>
+    <%= f.text_field :tag_name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 
 <%= link_to 'Back', tags_path %>
