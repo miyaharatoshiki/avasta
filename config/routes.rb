@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+  get 'information/index'
+
+#<<<<<<< HEAD
   get 'mypage/index'
+
+#=======
+  devise_for :users
+  resources :users
 
   get 'top/info'
 
