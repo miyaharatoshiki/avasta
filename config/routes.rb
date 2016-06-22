@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tags
 #<<<<<<< HEAD
 #<<<<<<< HEAD
   get 'information/index'
