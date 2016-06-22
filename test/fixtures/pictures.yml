@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  picture_id: 1
+  picture_title: MyString
+  user_id: 1
+  picture_data: MyString
+  picture_comment: MyText
+  picture_tag1_id: 1
+  picture_tag2_id: 1
+  picture_tag3_id: 1
+  picture_time: 2016-06-22 05:29:48
+
+two:
+  picture_id: 1
+  picture_title: MyString
+  user_id: 1
+  picture_data: MyString
+  picture_comment: MyText
+  picture_tag1_id: 1
+  picture_tag2_id: 1
+  picture_tag3_id: 1
+  picture_time: 2016-06-22 05:29:48

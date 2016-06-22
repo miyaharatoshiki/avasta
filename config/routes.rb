@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 #<<<<<<< HEAD
+#<<<<<<< HEAD
   get 'information/index'
 
 #<<<<<<< HEAD
@@ -8,12 +9,19 @@ Rails.application.routes.draw do
   get 'top/info'
 
 #=======
+  resources :pictures
+#=======
+#<<<<<<< HEAD
+  resources :comments
+#>>>>>>> 5219cb2bb827b8f77da9a9c4b53c5be4bef7cacd
+#=======
+#>>>>>>> 13ff64feb48dd265d1dc8b09ddcda882b2089080
   devise_for :users
   resources :users
 
 #=======
 #<<<<<<< HEAD
-  resources :comments
+  #resources :comments
 #=======
   #devise_for :users
   #resources :users
