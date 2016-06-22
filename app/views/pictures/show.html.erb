@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @picture.picture_id %>
+</p>
+
+<p>
+  <strong>Picture title:</strong>
+  <%= @picture.picture_title %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @picture.user_id %>
+</p>
+
+<p>
+  <strong>Picture data:</strong>
+  <%= image_tag(@picture.picture_data_url, width: 200) if @picture.picture_data.present? %>
+</p>
+
+<p>
+  <strong>Picture comment:</strong>
+  <%= @picture.picture_comment %>
+</p>
+
+<p>
+  <strong>Picture tag1:</strong>
+  <%= @picture.picture_tag1_id %>
+</p>
+
+<p>
+  <strong>Picture tag2:</strong>
+  <%= @picture.picture_tag2_id %>
+</p>
+
+<p>
+  <strong>Picture tag3:</strong>
+  <%= @picture.picture_tag3_id %>
+</p>
+
+<p>
+  <strong>Picture time:</strong>
+  <%= @picture.picture_time %>
+</p>
+
+<%= link_to 'Edit', edit_picture_path(@picture) %> |
+<%= link_to 'Back', pictures_path %>

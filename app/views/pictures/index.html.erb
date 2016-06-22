@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Pictures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Picture</th>
+      <th>Picture title</th>
+      <th>User</th>
+      <th>Picture data</th>
+      <th>Picture comment</th>
+      <th>Picture tag1</th>
+      <th>Picture tag2</th>
+      <th>Picture tag3</th>
+      <th>Picture time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pictures.each do |picture| %>
+      <tr>
+        <td><%= picture.picture_id %></td>
+        <td><%= picture.picture_title %></td>
+        <td><%= picture.user_id %></td>
+        <td><%= picture.picture_data %></td>
+        <td><%= picture.picture_comment %></td>
+        <td><%= picture.picture_tag1_id %></td>
+        <td><%= picture.picture_tag2_id %></td>
+        <td><%= picture.picture_tag3_id %></td>
+        <td><%= picture.picture_time %></td>
+        <td><%= link_to 'Show', picture %></td>
+        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
+        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Picture', new_picture_path %>
