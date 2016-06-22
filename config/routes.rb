@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   get 'top/info'
 
   root to: redirect('/top/info')

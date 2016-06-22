@@ -1,2 +1,15 @@
-<h1>Top#info</h1>
-<p>Find me in app/views/top/info.html.erb</p>
+<h1>Listing ideas</h1>
+
+<!-- <% @ideas.in_groups_of(3) do |group| %> -->
+  <div class="row">
+<!--    <% group.compact.each do |idea| %> -->
+      <div class="col-md-4">
+        <h4><%= idea.name %></h4>
+        <div><%= link_to image_tag(idea.picture_url(:thumb), width: 200), idea if idea.picture? %></div>
+        <%= idea.description %>
+      </div>
+    <% end %>
+</div>
+<% end %>
+
+<br />
