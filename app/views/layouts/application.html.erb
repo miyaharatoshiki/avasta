@@ -9,6 +9,13 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/smoothness/jquery-ui.css" >
+  <script>
+  $(function() {
+    $("#datepicker").datepicker();
+  });
+</script>
 </head>
 <body>
 
@@ -45,9 +52,7 @@
 </div>
 
   <footer>
-  <div class="container">
-    Rails Girls 2015
-  </div>
+
 </footer>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 

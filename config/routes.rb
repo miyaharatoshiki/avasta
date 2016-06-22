@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
+#<<<<<<< HEAD
   resources :pictures
+#=======
+#<<<<<<< HEAD
+  resources :comments
+#=======
+#>>>>>>> 13ff64feb48dd265d1dc8b09ddcda882b2089080
   devise_for :users
   resources :users
+#>>>>>>> 5ba7381dab532c40fa63fb2e120e3e9dc78141c0
   get 'top/info'
 
   root to: redirect('/top/info')

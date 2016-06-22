@@ -13,6 +13,15 @@
 
 ActiveRecord::Schema.define(version: 20160622052948) do
 
+  create_table "comments", force: :cascade do |t|
+    t.integer  "picture_id"
+    t.string   "user_name"
+    t.text     "comment_body"
+    t.datetime "comment_time"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "pictures", force: :cascade do |t|
     t.integer  "picture_id"
     t.string   "picture_title"
