@@ -121,7 +121,12 @@ $(document).ready(function() {
                 ]
             }
         ]
+
+      // カレンダーの再描画
+      //$('#calendar').fullCalendar('rendar');
     });
+
+
     // 動的にオプションを変更する
     //$('#calendar').fullCalendar('option', 'height', 700);
 
