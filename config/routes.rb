@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'mypage/index'
+
   get 'top/info'
 
   root to: redirect('/top/info')
