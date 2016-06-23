@@ -12,18 +12,20 @@
           <!--<p><a class="btn" href="#">View details &raquo;</a></p>-->
         </div>
           <div class="col-xs-8">
-          <h2><%= @users.user_name %></h2>
-          <br>
-          <h5>勤務地</h5>
-          <h5>サークル</h5>
-          <h5>入社年度</h5>
+        <h2><%= current_user.user_name %></h2>
+        <br>
+        <h4>
+        <%= current_user.user_place %> /
+        <%= current_user.user_circle %> /
+        <%= current_user.user_year %>
+        </h4>
           <!--<p><a class="btn" href="#">View details &raquo;</a></p>-->
         </div>
           </div>
         </div>
         <!--<a class="btn btn-large btn-success" href="#">Get started today</a>-->
         <div align="right">
-        <button class="btn btn-info"><a href="/information/index">登録変更</a></button>
+        <button class="btn btn-success"><a href="/information/index">登録情報変更</a></button>
           </div>
       </div>
 
@@ -32,24 +34,34 @@
       <!-- Example row of columns -->
       <div class="container-fluid">
         <div class="row">
-        <div class="col-xs-4">
-          <img alt="" src="http://wp-p.info/html-biginner/img/test.jpg" width ="200" height="200" id="image_a">
-          <h2>タイトル</h2>
-          <!--<p><a class="btn" href="#">View details &raquo;</a></p>-->
+
+    <% @pictures.each do |picture| %>
+        <div class="col-md-4">
+          <h2><%= picture.picture_title %></h2>
+        <div><%= link_to image_tag(picture.picture_data(), width: 300, height: 200), picture %></div>
         </div>
+    <% end %>
+        <!--<div class="col-xs-4">
+          <img alt="" src="http://wp-p.info/html-biginner/img/test.jpg" width ="200" height="200" id="image_a">
+          <h2>タイトル</h2>
+          -->
+          <!--<p><a class="btn" href="#">View details &raquo;</a></p>-->
+
+
+        <!--</div>
         <div class="col-xs-4">
           <img alt="" src="http://wp-p.info/html-biginner/img/test.jpg" width ="200" height="200" id="image_a">
           <h2>タイトル</h2>
-          <!--<p><a class="btn" href="#">View details &raquo;</a></p>-->
        </div>
         <div class="col-xs-4">
           <img alt="" src="http://wp-p.info/html-biginner/img/test.jpg" width ="200" height="200" id="image_a">
           <h2>タイトル</h2>
-          <!--<p><a class="btn" href="#">View details &raquo;</a></p>-->
         </div>
         </div>
       </div>
-
+-->
       <hr>
 
     </div> <!-- /container -->
+        <br>
+        <br>
