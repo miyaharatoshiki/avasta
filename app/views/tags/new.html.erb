@@ -17,17 +17,17 @@
     </div>
   <% end %>
 
+<br>
   <div class="field">
-    <%= f.label :タグの番号 %><br>
-    <%= f.number_field :tag_id %>
-  </div>
-  <div class="field">
-    <%= f.label :タグの名前 %><br>
+    <%= f.label :タグ名 %><br>
     <%= f.text_field :tag_name %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :タグ追加 %>
   </div>
 <% end %>
 
-<%= link_to 'Back', '/top/info' %>
+
+<br>
+<br>
+<%= link_to 'Back', '/pictures/new' %>
