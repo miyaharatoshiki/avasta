@@ -29,34 +29,41 @@
   </div>
 </div>
 
+<br>
+
   <div class="field">
     <%= f.label :タイトル %><br>
     <%= f.text_field :picture_title %>
   </div>
 
-
+<br>
 
   <div class="field">
     <%= f.label :写真 %><br>
     <%= f.file_field :picture_data %>
   </div>
+
+<br>
+
   <div class="field">
     <%= f.label :コメント %><br>
     <%= f.text_area :picture_comment %>
   </div>
+
+
+
   <div class="field">
-    <%= f.label :タグ１ %><br>
+
+    <%= f.label :タグ選択 %><br>
     <%= f.collection_select :picture_tag1_id, Tag.all, :tag_id, :tag_name %>
-  </div>
-  <div class="field">
-    <%= f.label :タグ２ %><br>
     <%= f.collection_select :picture_tag2_id, Tag.all, :tag_id, :tag_name %>
-  </div>
-  <div class="field">
-    <%= f.label :タグ３ %><br>
     <%= f.collection_select :picture_tag3_id, Tag.all, :tag_id, :tag_name %>
   </div>
 
+
+<%= link_to 'タグの追加', new_tag_path(@tag) %>
+<br>
+<br>
 <div class="nondisplayFrame">
   <div class="field">
     <%= f.label :picture_time %><br>
@@ -70,7 +77,6 @@
 <% end %>
 
 <br>
-<%= link_to 'タグの追加', new_tag_path(@tag) %>
 <br>
-
+<br>
 <%= link_to '戻る', pictures_path %>
