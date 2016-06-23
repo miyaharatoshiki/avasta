@@ -12,15 +12,13 @@
           <!--<p><a class="btn" href="#">View details &raquo;</a></p>-->
         </div>
           <div class="col-xs-8">
-        <% @users.each do |user| %>
         <h2><%= current_user.user_name %></h2>
         <br>
-        <h5>
+        <h4>
         <%= current_user.user_place %> /
         <%= current_user.user_circle %> /
         <%= current_user.user_year %>
-        </h5>
-    <% end %>
+        </h4>
           <!--<p><a class="btn" href="#">View details &raquo;</a></p>-->
         </div>
           </div>
@@ -39,8 +37,8 @@
 
     <% @pictures.each do |picture| %>
         <div class="col-xs-4">
-        <%= image_tag(picture.picture_data_url, width: 200) if picture.picture_data.present? %>
-        <h2><%= picture.picture_title %></h2>
+          <h2><%= picture.picture_title %></h2>
+        <div><%= link_to image_tag(picture.picture_data(), width: 300, height: 200), picture %></div>
         </div>
     <% end %>
         <!--<div class="col-xs-4">
@@ -62,7 +60,8 @@
         </div>
       </div>
 -->
-
       <hr>
 
     </div> <!-- /container -->
+        <br>
+        <br>
