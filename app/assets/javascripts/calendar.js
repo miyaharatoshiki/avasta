@@ -32,8 +32,10 @@ $(document).ready(function() {
             //alert('ウィンドウリサイズイベント');
         },
         // 日付クリックイベント
-        dayClick: function () {
-            //alert('日付クリックイベント');
+        dayClick: function (date, allDay, jsEvent, view) {
+          $(this).css('background-color','red');
+          //var date2 = new Date(date.getFullYear(), date.getMonth(), date.getDate()+1);
+          alert(date.format());
         },
         // 初期表示ビュー
         defaultView: 'month',

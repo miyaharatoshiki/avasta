@@ -1,7 +1,10 @@
+<!--
 <p id="notice"><%= notice %></p>
+-->
 
-<h1>Listing Pictures</h1>
+<h3>Listing Pictures</h3>
 
+<!--
 <table>
   <thead>
     <tr>
@@ -17,6 +20,7 @@
       <th colspan="3"></th>
     </tr>
   </thead>
+-->
 
   <tbody>
     <% @pictures.each do |picture| %>
@@ -34,6 +38,9 @@
         <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
         <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+
+    <br>
+
     <% end %>
   </tbody>
 </table>
@@ -41,3 +48,4 @@
 <br>
 
 <%= link_to 'New Picture', new_picture_path %>
+

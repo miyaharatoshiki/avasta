@@ -1,9 +1,17 @@
 <div class="row">
   <div class="col-md-9">
+  <h1>トップページ</h1>
+  <% Picture.all.in_groups_of(3) do |group| %>
+  <% group.compact.each do |picture| %>
+  <div class="col-md-4">
     <div class="main">
-      <h1>トップページ</h1>
+      <h4><%= picture.picture_title %></h4>
+      <div><%= link_to image_tag(picture.picture_data(), width: 200), picture %></div>
     </div>
   </div>
+  <% end %>
+  <% end %>
+    </div>
   <div class="col-md-3">
     <div class="sub">
       <div id="calendar"></div>

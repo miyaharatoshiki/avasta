@@ -34,7 +34,11 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a class="navbar-brand" href="/mypage/index"><i class="fa fa-child"></i>プロフィール</a></li>
         <li><a class="navbar-brand" href="/pictures/new"><i class="fa fa-camera"></i>写真投稿</a></li>
+        <% if user_signed_in? %>
         <li><a class="navbar-brand" href="/"><i class="fa fa-circle-o-notch"></i>ログアウト</a></li>
+        <% else %>
+        <li><a class="navbar-brand" href="/"><i class="fa fa-circle-o"></i>ログイン</a></li>
+        <% end %>
       </ul>
 
 
