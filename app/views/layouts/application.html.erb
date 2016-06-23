@@ -10,12 +10,6 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
-  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/smoothness/jquery-ui.css" >
-  <script>
-  $(function() {
-    $("#datepicker").datepicker();
-  });
-</script>
 </head>
 <body>
 
@@ -33,27 +27,20 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-        <li> ようこそ、 <strong><%= current_user.email %></strong> さん！</li>
-        <% end %>
+        <li class="navbar-brand">ようこそ、 <strong><%= current_user.email %></strong> さん！</li>
         <li><a class="navbar-brand" href="/mypage/index"><i class="fa fa-child"></i>プロフィール</a></li>
         <li><a class="navbar-brand" href="/pictures/new"><i class="fa fa-camera"></i>写真投稿</a></li>
-        <% if user_signed_in? %>
         <li>
           <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do %>
           <i class="fa fa-circle-o-notch"></i>ログアウト
           <% end %>
         </li>
-<!--          <a class="navbar-brand" href="/"><i class="fa fa-circle-o-notch"></i>ログアウト</a></li> -->
         <% else %>
-
-<!--        <li><a class="navbar-brand" href="/users/sign_in"><i class="fa fa-circle-o"></i>ログイン</a></li> -->
-
         <li>
           <%= link_to  new_user_registration_path, :class => 'navbar-link' do %>
           <i class="fa fa-user-plus"></i>ユーザ登録
           <% end %>
         </li>
-
         <li>
           <%= link_to  new_user_session_path, :class => 'navbar-link' do  %>
           <i class="fa fa-circle-o"></i>ログイン
@@ -61,8 +48,6 @@
         </li>
         <% end %>
       </ul>
-
-
     </div>
 
   </div>
