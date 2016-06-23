@@ -25,11 +25,11 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
-    @comment.user_name = current_user.email
+    #@comment.user_name = current_user.email
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.html { redirect_to :back, notice: 'コメントが保存されました！' }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }

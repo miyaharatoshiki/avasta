@@ -25,6 +25,9 @@ class PicturesController < ApplicationController
   # POST /pictures.json
   def create
     @picture = Picture.new(picture_params)
+    if @picture.picture_title = "null" then
+      @picture.picture_title = "no title"
+    end
 
     @picture.user_id = current_user.id
 

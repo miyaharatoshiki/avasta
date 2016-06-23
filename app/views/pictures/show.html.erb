@@ -58,17 +58,14 @@
     </div>
   <% end %>
 
-<div class="nondisplayFrame">
   <div class="field">
-    <%= f.label :picture_id %><br>
-    <%= f.number_field :picture_id %>
+    <%= f.label :名前 %><br>
+    <%= f.text_field :user_name %>
   </div>
-</div>
-
 
   <div class="field">
     <%= f.text_area :comment_body %>
-    <%= f.hidden_field :picture_id %>
+    
   </div>
   <div class="field">
 
