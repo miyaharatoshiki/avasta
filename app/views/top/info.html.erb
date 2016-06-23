@@ -17,7 +17,7 @@
     <h1>
     <%= tmp %>の画像一覧
     </h1>
-  <% Picture.where(:picture_time.date => tmp).all.in_groups_of(3) do |group| %>
+  <% Picture.where(picture_time: tmp).all.in_groups_of(3) do |group| %>
     <% group.compact.each do |picture| %>
     <div class="col-md-4">
     <div class="main">
