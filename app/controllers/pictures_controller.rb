@@ -26,7 +26,10 @@ class PicturesController < ApplicationController
   def create
     @picture = Picture.new(picture_params)
 
+    @picture.user = current_user.user
+
     respond_to do |format|
+
       if @picture.save
         format.html { redirect_to @picture, notice: '写真を投稿しました！' }
         format.json { render :show, status: :created, location: @picture }
@@ -36,6 +39,7 @@ class PicturesController < ApplicationController
       end
     end
   end
+
 
   # PATCH/PUT /pictures/1
   # PATCH/PUT /pictures/1.json
