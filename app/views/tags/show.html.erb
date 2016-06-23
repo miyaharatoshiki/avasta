@@ -4,7 +4,13 @@
     <%= @tag.tag_name %>
     の画像一覧
   </h1>
-  <% Picture.all.in_groups_of(3) do |group| %>
+  <% scope1 = Picture.where(picture_tag1_id: @tag.id); %>
+  <% scope2 = Picture.where(picture_tag2_id: @tag.id); %>
+  <% scope3 = Picture.where(picture_tag3_id: @tag.id); %>
+  <% condition1 = Picture.arel_table.grouping(scope1.where_values.reduce(:and)) %>
+  <% condition2 = Picture.arel_table.grouping(scope2.where_values.reduce(:and)) %>
+  <% condition3 = Picture.arel_table.grouping(scope3.where_values.reduce(:and)) %>
+  <% Picture.where(condition1.or(condition2.or(condition3))).tap { |scope| scope.bind_values = scope1.bind_values + scope2.bind_values + scope3.bind_values }.all.in_groups_of(3) do |group| %>
   <% group.compact.each do |picture| %>
   <div class="col-md-4">
     <div class="main">
@@ -31,23 +37,3 @@
 </div>
 
 <br />
-
-
-
-
-
-<p id="notice"><%= notice %></p>
-
-
-<p>
-  <strong>Tag:</strong>
-  <%= @tag.tag_id %>
-</p>
-
-<p>
-  <strong>Tag name:</strong>
-  <%= @tag.tag_name %>
-</p>
-
-<%= link_to 'Edit', edit_tag_path(@tag) %> |
-<%= link_to 'Back', tags_path %>
