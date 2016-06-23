@@ -1,4 +1,4 @@
-<h2>ユーザー登録情報変更</h2>
+<h2>ログイン情報変更</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -37,6 +37,6 @@
 
 <h3>ユーザー削除</h3>
 
-<p><%= button_to "ユーザー削除", registration_path(resource_name), data: { confirm: "削除してよろしいですか？" }, method: :delete %></p>
+<p><%= button_to "削除", registration_path(resource_name), data: { confirm: "削除してよろしいですか？" }, method: :delete %></p>
 
 <%= link_to "戻る", :back %>
