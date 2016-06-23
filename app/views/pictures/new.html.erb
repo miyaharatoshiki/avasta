@@ -55,9 +55,9 @@
   <div class="field">
 
     <%= f.label :タグ選択 %><br>
-    <%= f.collection_select :picture_tag1_id, Tag.all, :tag_id, :tag_name %>
-    <%= f.collection_select :picture_tag2_id, Tag.all, :tag_id, :tag_name %>
-    <%= f.collection_select :picture_tag3_id, Tag.all, :tag_id, :tag_name %>
+    <%= f.collection_select :picture_tag1_id, Tag.all, :id, :tag_name %>
+    <%= f.collection_select :picture_tag2_id, Tag.all, :id, :tag_name %>
+    <%= f.collection_select :picture_tag3_id, Tag.all, :id, :tag_name %>
   </div>
 
 
@@ -76,7 +76,6 @@
   </div>
 <% end %>
 
-<br>
 <br>
 <br>
 <%= link_to '戻る', pictures_path %>
