@@ -36,7 +36,7 @@
         <div class="row">
 
     <% @pictures.each do |picture| %>
-        <div class="col-xs-4">
+        <div class="col-md-4">
           <h2><%= picture.picture_title %></h2>
         <div><%= link_to image_tag(picture.picture_data(), width: 300, height: 200), picture %></div>
         </div>
