@@ -45,7 +45,15 @@
         </li>
 <!--          <a class="navbar-brand" href="/"><i class="fa fa-circle-o-notch"></i>ログアウト</a></li> -->
         <% else %>
+
 <!--        <li><a class="navbar-brand" href="/users/sign_in"><i class="fa fa-circle-o"></i>ログイン</a></li> -->
+
+        <li>
+          <%= link_to  new_user_registration_path, :class => 'navbar-link' do %>
+          <i class="fa fa-user-plus"></i>ユーザ登録
+          <% end %>
+        </li>
+
         <li>
           <%= link_to  new_user_session_path, :class => 'navbar-link' do  %>
           <i class="fa fa-circle-o"></i>ログイン
