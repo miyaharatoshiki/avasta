@@ -4,42 +4,47 @@
 
 <div class="row">
   <div class="col-md-9">
+    <h3>「<%= @picture.picture_title %>」</h3>
+    <h4><%= @picture.picture_comment %></h4>
     <%= image_tag(@picture.picture_data_url, width: '100%') if @picture.picture_data.present? %>
   </div>
 
   <div class="col-md-3">
-    <p><b>タイトル: </b><%= @picture.picture_title %></p>
-    <p><b>コメント: </b><%= @picture.picture_comment %></p>
 
-<!--
-    <p><b>タグ１: </b><%= @picture.picture_tag1_id %></p>
-    <p><b>タグ２: </b><%= @picture.picture_tag2_id %></p>
-    <p><b>タグ３: </b><%= @picture.picture_tag3_id %></p>
--->
+
+
 
     <p>
-      <%= link_to '編集', edit_picture_path(@picture) %> |
+
+      <br>
+      <%= link_to 'トップ', '/top/info' %> |
+      <%= link_to '投稿フォーム', new_picture_path(@picture) %>
+
+      <!--
+
       <%= link_to '消去', @idea, data: { confirm: '本当に消去しますか？' }, method: :delete %> |
-      <%= link_to '投稿フォーム', new_picture_path(@picture) %> |
-      <%= link_to 'トップ', pictures_path %>
+
+      -->
     </p>
-  </div>
-</div>
 
 <br>
-<h3>コメント</h3>
+<br>
+
+<h4>コメント</h4>
 <% @comments.each do |comment| %>
   <div>
     <p><%= comment.comment_time %></p>
     <strong><%= comment.user_name %></strong>
     <p><%= comment.comment_body %></p>
+    <!--
     <p><%= link_to '消去', comment_path(comment), method: :delete, data: { confirm: '削除してもよろしいですか？' } %></p>
-  </div>
+    -->
+    </div>
   <br>
 <% end %>
 
 
-<h3>コメント投稿</h3>
+<h4>コメント投稿</h4>
 <%= form_for(@comment) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
@@ -60,12 +65,8 @@
   </div>
 </div>
 
+
   <div class="field">
-    <%= f.label :名前 %><br>
-    <%= f.text_field :user_name %>
-  </div>
-  <div class="field">
-    <%= f.label :コメント %><br>
     <%= f.text_area :comment_body %>
     <%= f.hidden_field :picture_id %>
   </div>
@@ -82,3 +83,15 @@
     <%= f.submit :送信 %>
   </div>
 <% end %>
+
+
+
+<!--
+    <p><b>タグ１: </b><%= @picture.picture_tag1_id %></p>
+    <p><b>タグ２: </b><%= @picture.picture_tag2_id %></p>
+    <p><b>タグ３: </b><%= @picture.picture_tag3_id %></p>
+-->
+
+
+  </div>
+</div>
