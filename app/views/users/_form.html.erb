@@ -1,3 +1,4 @@
+
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -12,30 +13,26 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_number %><br>
+    <%= f.label "社員番号" %><br>
     <%= f.text_field :user_number %>
   </div>
   <div class="field">
-    <%= f.label :user_name %><br>
+    <%= f.label "氏名" %><br>
     <%= f.text_field :user_name %>
   </div>
   <div class="field">
-    <%= f.label :user_pass %><br>
-    <%= f.text_field :user_pass %>
-  </div>
-  <div class="field">
-    <%= f.label :user_place %><br>
+    <%= f.label "勤務地" %><br>
     <%= f.text_field :user_place %>
   </div>
   <div class="field">
-    <%= f.label :user_circle %><br>
+    <%= f.label "所属" %><br>
     <%= f.text_field :user_circle %>
   </div>
   <div class="field">
-    <%= f.label :user_year %><br>
+    <%= f.label "入社年度" %><br>
     <%= f.text_field :user_year %>
   </div>
   <div class="actions">
     <%= f.submit %>
-  </div>
+</div>
 <% end %>

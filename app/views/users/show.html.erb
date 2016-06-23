@@ -1,34 +1,29 @@
-<p id="notice"><%= notice %></p>
+<h2>登録情報確認</h2>
 
 <p>
-  <strong>User number:</strong>
+  <strong>社員番号:</strong>
   <%= @user.user_number %>
 </p>
 
 <p>
-  <strong>User name:</strong>
+  <strong>氏名:</strong>
   <%= @user.user_name %>
 </p>
 
 <p>
-  <strong>User pass:</strong>
-  <%= @user.user_pass %>
-</p>
-
-<p>
-  <strong>User place:</strong>
+  <strong>勤務地:</strong>
   <%= @user.user_place %>
 </p>
 
 <p>
-  <strong>User circle:</strong>
+  <strong>所属サークル:</strong>
   <%= @user.user_circle %>
 </p>
 
 <p>
-  <strong>User year:</strong>
+  <strong>入社年度:</strong>
   <%= @user.user_year %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to '変更', edit_user_path(@user) %> |
+<%= link_to '戻る', edit_user_registration_path %>
