@@ -8,7 +8,7 @@
         <div class="container-fluid">
         <div class="row">
         <div class="col-xs-4">
-          <img alt="" src="http://wp-p.info/html-biginner/img/test.jpg" width ="150" height="150" class="img-responsive img-rounded">
+          <img alt="" src="http://wp-p.info/html-biginner/img/test.jpg" width ="150" height="150" class="img-responsive img-rounded" id="image_a">
           <!--<p><a class="btn" href="#">View details &raquo;</a></p>-->
         </div>
           <div class="col-xs-8">
@@ -25,7 +25,7 @@
         </div>
         <!--<a class="btn btn-large btn-success" href="#">Get started today</a>-->
         <div align="right">
-        <button class="btn btn-success"><a href="/information/index">登録情報変更</a></button>
+          <button class="btn btn-success"><%= link_to '登録情報変更', edit_user_registration_path %></button>
           </div>
       </div>
 
