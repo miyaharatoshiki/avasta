@@ -6,8 +6,12 @@
   <div class="col-md-9">
     <h3>「<%= @picture.picture_title %>」</h3>
     <h4><%= @picture.picture_comment %></h4>
-    <%= image_tag(@picture.picture_data_url, width: '100%') if @picture.picture_data.present? %>
+    <% Tag.where(id: @picture.picture_tag1_id).all.in_groups_of(3) do |group| %>
+    <% group.compact.each do |tag| %>
+    <h5><%= tag.tag_name %></h5>
   </div>
+    <% end %>
+  <% end %>
 
   <div class="col-md-3">
 
@@ -17,16 +21,14 @@
     <p>
 
       <br>
+      <!--
       <%= link_to 'トップ', '/top/info' %> |
       <%= link_to '投稿フォーム', new_picture_path(@picture) %>
-
-      <!--
-
-      <%= link_to '消去', @idea, data: { confirm: '本当に消去しますか？' }, method: :delete %> |
-
       -->
+    <% if @picture.user_id == current_user.id %>
+    <%= link_to '消去', @picture, data: { confirm: '本当に消去しますか？' }, method: :delete %>
     </p>
-
+    <% end %>
 <br>
 <br>
 
@@ -65,7 +67,7 @@
 
   <div class="field">
     <%= f.text_area :comment_body %>
-    
+
   </div>
   <div class="field">
 

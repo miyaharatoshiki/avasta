@@ -63,7 +63,7 @@ class PicturesController < ApplicationController
   def destroy
     @picture.destroy
     respond_to do |format|
-      format.html { redirect_to pictures_url, notice: '写真を消去しました！' }
+      format.html { redirect_to '/top/info', notice: '写真を消去しました！' }
       format.json { head :no_content }
     end
   end
