@@ -12,11 +12,15 @@
           <!--<p><a class="btn" href="#">View details &raquo;</a></p>-->
         </div>
           <div class="col-xs-8">
-          <h2><%= @users.user_name %></h2>
-          <br>
-          <h5>勤務地</h5>
-          <h5>サークル</h5>
-          <h5>入社年度</h5>
+        <% @users.each do |user| %>
+        <h2><%= current_user.user_name %></h2>
+        <br>
+        <h5>
+        <%= current_user.user_place %> /
+        <%= current_user.user_circle %> /
+        <%= current_user.user_year %>
+        </h5>
+    <% end %>
           <!--<p><a class="btn" href="#">View details &raquo;</a></p>-->
         </div>
           </div>
@@ -32,23 +36,32 @@
       <!-- Example row of columns -->
       <div class="container-fluid">
         <div class="row">
+
+    <% @pictures.each do |picture| %>
         <div class="col-xs-4">
-          <img alt="" src="http://wp-p.info/html-biginner/img/test.jpg" width ="200" height="200" id="image_a">
-          <h2>タイトル</h2>
-          <!--<p><a class="btn" href="#">View details &raquo;</a></p>-->
+        <%= image_tag(picture.picture_data_url, width: 200) if picture.picture_data.present? %>
+        <h2><%= picture.picture_title %></h2>
         </div>
+    <% end %>
+        <!--<div class="col-xs-4">
+          <img alt="" src="http://wp-p.info/html-biginner/img/test.jpg" width ="200" height="200" id="image_a">
+          <h2>タイトル</h2>
+          -->
+          <!--<p><a class="btn" href="#">View details &raquo;</a></p>-->
+
+
+        <!--</div>
         <div class="col-xs-4">
           <img alt="" src="http://wp-p.info/html-biginner/img/test.jpg" width ="200" height="200" id="image_a">
           <h2>タイトル</h2>
-          <!--<p><a class="btn" href="#">View details &raquo;</a></p>-->
        </div>
         <div class="col-xs-4">
           <img alt="" src="http://wp-p.info/html-biginner/img/test.jpg" width ="200" height="200" id="image_a">
           <h2>タイトル</h2>
-          <!--<p><a class="btn" href="#">View details &raquo;</a></p>-->
         </div>
         </div>
       </div>
+-->
 
       <hr>
 
