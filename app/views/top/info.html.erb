@@ -6,7 +6,7 @@
   <div class="col-md-4">
     <div class="main">
       <h4><%= picture.picture_title %></h4>
-      <div><%= link_to image_tag(picture.picture_data(), width: 200), picture %></div>
+      <div><%= link_to image_tag(picture.picture_data(), width: 280, height: 210), picture %></div>
     </div>
   </div>
   <% end %>
@@ -18,11 +18,9 @@
       <h3>タグ一覧</h3>
       <div class="contents">
         <ul>
-          <li>ああああ</li>
-          <li>いいいい</li>
-          <li>うううう</li>
-          <li>ええええ</li>
-          <li>おおおお</li>
+          <% Tag.all.compact.each do |tag| %>
+          <li><%= link_to tag.tag_name, tag %></li>
+          <% end %>
         </ul>
       </div>
     </div>

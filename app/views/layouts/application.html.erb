@@ -32,9 +32,26 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+        <li>ようこそ、 <strong><%= current_user.email %></strong> さん！</li>
+        <% end %>
         <li><a class="navbar-brand" href="/mypage/index"><i class="fa fa-child"></i>プロフィール</a></li>
         <li><a class="navbar-brand" href="/pictures/new"><i class="fa fa-camera"></i>写真投稿</a></li>
-        <li><a class="navbar-brand" href="/"><i class="fa fa-circle-o-notch"></i>ログアウト</a></li>
+        <% if user_signed_in? %>
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do %>
+          <i class="fa fa-circle-o-notch"></i>ログアウト
+          <% end %>
+        </li>
+<!--          <a class="navbar-brand" href="/"><i class="fa fa-circle-o-notch"></i>ログアウト</a></li> -->
+        <% else %>
+<!--        <li><a class="navbar-brand" href="/users/sign_in"><i class="fa fa-circle-o"></i>ログイン</a></li> -->
+        <li>
+          <%= link_to  new_user_session_path, :class => 'navbar-link' do  %>
+          <i class="fa fa-circle-o"></i>ログイン
+          <% end %>
+        </li>
+        <% end %>
       </ul>
 
 
