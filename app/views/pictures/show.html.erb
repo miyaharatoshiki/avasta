@@ -26,67 +26,59 @@
   </div>
 </div>
 
+<br>
 <h3>コメント</h3>
 <% @comments.each do |comment| %>
   <div>
+    <p><%= comment.comment_time %></p>
     <strong><%= comment.user_name %></strong>
-    <br />
     <p><%= comment.comment_body %></p>
-    <p><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: '削除してもよろしいですか？' } %></p>
+    <p><%= link_to '消去', comment_path(comment), method: :delete, data: { confirm: '削除してもよろしいですか？' } %></p>
+  </div>
+  <br>
+<% end %>
+
+
+<h3>コメント投稿</h3>
+<%= form_for(@comment) do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="nondisplayFrame">
+  <div class="field">
+    <%= f.label :picture_id %><br>
+    <%= f.number_field :picture_id %>
+  </div>
+</div>
+
+  <div class="field">
+    <%= f.label :名前 %><br>
+    <%= f.text_field :user_name %>
+  </div>
+  <div class="field">
+    <%= f.label :コメント %><br>
+    <%= f.text_area :comment_body %>
+    <%= f.hidden_field :picture_id %>
+  </div>
+  <div class="field">
+
+    <div class="nondisplayFrame">
+    <%= f.label :comment_time %><br>
+    <%= f.datetime_select :comment_time %>
+    </div>
+    </div>
+
+
+  <div class="actions">
+    <%= f.submit :送信 %>
   </div>
 <% end %>
-<%= render 'comments/form' %>
-
-<!--
-
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Picture:</strong>
-  <%= @picture.picture_id %>
-</p>
-
-<p>
-  <strong>Picture title:</strong>
-  <%= @picture.picture_title %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @picture.user_id %>
-</p>
-
-<p>
-  <strong>Picture data:</strong>
-  <%= image_tag(@picture.picture_data_url, width: 200) if @picture.picture_data.present? %>
-</p>
-
-<p>
-  <strong>Picture comment:</strong>
-  <%= @picture.picture_comment %>
-</p>
-
-<p>
-  <strong>Picture tag1:</strong>
-  <%= @picture.picture_tag1_id %>
-</p>
-
-<p>
-  <strong>Picture tag2:</strong>
-  <%= @picture.picture_tag2_id %>
-</p>
-
-<p>
-  <strong>Picture tag3:</strong>
-  <%= @picture.picture_tag3_id %>
-</p>
-
-<p>
-  <strong>Picture time:</strong>
-  <%= @picture.picture_time %>
-</p>
-
-<%= link_to 'Edit', edit_picture_path(@picture) %> |
-<%= link_to 'Back', pictures_path %>
-
--->
