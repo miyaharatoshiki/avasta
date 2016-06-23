@@ -1,6 +1,52 @@
-<h1>Editing Picture</h1>
+<h3>写真情報の編集</h3>
 
+<!--
 <%= render 'form' %>
+-->
 
-<%= link_to 'Show', @picture %> |
-<%= link_to 'Back', pictures_path %>
+<%= form_for(@picture) do |f| %>
+  <% if @picture.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
+
+      <ul>
+      <% @picture.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :タイトル %><br>
+    <%= f.text_field :picture_title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :コメント %><br>
+    <%= f.text_area :picture_comment %>
+  </div>
+  <div class="field">
+    <%= f.label :タグ１ %><br>
+    <%= f.collection_select :picture_tag1_id, Tag.all, :tag_id, :tag_name %>
+  </div>
+  <div class="field">
+    <%= f.label :タグ２ %><br>
+    <%= f.collection_select :picture_tag2_id, Tag.all, :tag_id, :tag_name %>
+  </div>
+  <div class="field">
+    <%= f.label :タグ３ %><br>
+    <%= f.collection_select :picture_tag3_id, Tag.all, :tag_id, :tag_name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit :送信 %>
+  </div>
+<% end %>
+
+<br>
+<%= link_to 'タグの追加', new_tag_path(@tag) %>
+<br>
+
+<%= link_to '詳細表示', @picture %> |
+<%= link_to '戻る', pictures_path %>
