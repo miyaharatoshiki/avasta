@@ -35,11 +35,13 @@
       <div class="container-fluid">
         <div class="row">
 
-    <% @pictures.each do |picture| %>
+          <% Picture.where(user_id: current_user.id).all.in_groups_of(1) do |group| %>
+  <% group.compact.each do |picture| %>
         <div class="col-md-4">
           <h2><%= picture.picture_title %></h2>
         <div><%= link_to image_tag(picture.picture_data(), width: 300, height: 200), picture %></div>
         </div>
+    <% end %>
     <% end %>
         <!--<div class="col-xs-4">
           <img alt="" src="http://wp-p.info/html-biginner/img/test.jpg" width ="200" height="200" id="image_a">
@@ -60,7 +62,6 @@
         </div>
       </div>
 -->
-      <hr>
 
     </div> <!-- /container -->
         <br>
