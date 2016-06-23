@@ -1,4 +1,5 @@
-$(document).ready(function() {
+$( document ).on( 'ready page:load', function()
+{
     $('#calendar').fullCalendar({
         // ヘッダーのタイトルとボタン
         header: {
@@ -18,9 +19,9 @@ $(document).ready(function() {
         // 週数を表示
         weekNumbers: false,
         // 高さ(px)
-        height: 400,
+        height: 300,
         // コンテンツの高さ(px)
-        contentHeight: 350,
+        contentHeight: 300,
         // カレンダーの縦横比(比率が大きくなると高さが縮む)
         //aspectRatio: 1.35,
         // ビュー表示イベント
@@ -34,8 +35,16 @@ $(document).ready(function() {
         // 日付クリックイベント
         dayClick: function (date, allDay, jsEvent, view) {
           $(this).css('background-color','red');
-          //var date2 = new Date(date.getFullYear(), date.getMonth(), date.getDate()+1);
-          alert(date.format());
+
+	        exp=new Date();
+
+	        exp.setTime(exp.getTime()+1000*60*60*24*1);
+
+        	ckstr = escape(date.format());
+
+        	document.cookie = "ASH_jsc=" + ckstr + "; expires=" + exp.toGMTString();
+
+          location.reload()
         },
         // 初期表示ビュー
         defaultView: 'month',
@@ -138,3 +147,41 @@ $(document).ready(function() {
     // カレンダーを破棄（イベントハンドラや内部データも破棄する）
     //$('#calendar').fullCalendar('destroy')
 });
+
+function getck(){
+	//alert('◎cookie文字列全体\n'+document.cookie);
+
+	cklng = document.cookie.length;
+
+	ckary = document.cookie.split("; ");
+
+	ckstr = "";
+
+	i = 0;
+
+	while (ckary[i]){
+		if (ckary[i].substr(0,8) == "ASH_jsc="){
+			ckstr = ckary[i].substr(8,ckary[i].length);
+			break;
+		}
+		i++;
+	}
+
+	alert('◎抽出された文字列\n'+ckary[i]);
+
+	ckary = ckstr.split("%00");
+
+	if (ckary[0]) document.forms[0].usr.value = unescape(ckary[0]);
+
+  var date1 = new Date();
+
+  date1.setTime(0);
+
+  document.cookie = "counts=;expires="+date1.toGMTString();
+
+}
+
+function delCookie()
+{
+  document.cookie = "ASH_jsc=0";
+}
