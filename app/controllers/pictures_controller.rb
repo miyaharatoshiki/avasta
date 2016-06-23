@@ -26,7 +26,7 @@ class PicturesController < ApplicationController
   def create
     @picture = Picture.new(picture_params)
 
-    @picture.user = current_user.user
+    @picture.user_id = current_user.id
 
     respond_to do |format|
 
