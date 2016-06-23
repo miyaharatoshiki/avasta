@@ -6,12 +6,28 @@
   <div class="col-md-9">
     <h3>「<%= @picture.picture_title %>」</h3>
     <h4><%= @picture.picture_comment %></h4>
-    <% Tag.where(id: @picture.picture_tag1_id).all.in_groups_of(3) do |group| %>
-    <% group.compact.each do |tag| %>
-    <h5><%= tag.tag_name %></h5>
+    <% tag1 = Tag.where(id: @picture.picture_tag1_id).first %>
+    <% tag2 = Tag.where(id: @picture.picture_tag2_id).first %>
+    <% tag3 = Tag.where(id: @picture.picture_tag3_id).first %>
+    <% #group.compact.each do |tag| %>
+    <h5>
+      <%= tag1.tag_name %>
+      <%= tag2.tag_name %>
+      <%= tag3.tag_name %>
+    </h5>
+
+    <%= image_tag @picture.picture_data, width: '100%' if @picture.present? %>
+
+    <% name = User.where(id: @picture.user_id).first %>
+    <h5>
+      <% if name == nil %>
+      <% else %>
+      <%= name.email %>
+      <% end %>
+    </h5>
   </div>
-    <% end %>
-  <% end %>
+
+  <% #end %>
 
   <div class="col-md-3">
 
