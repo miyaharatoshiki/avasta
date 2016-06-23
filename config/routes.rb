@@ -16,7 +16,9 @@ Rails.application.routes.draw do
 #>>>>>>> 5219cb2bb827b8f77da9a9c4b53c5be4bef7cacd
 #=======
 #>>>>>>> 13ff64feb48dd265d1dc8b09ddcda882b2089080
-  devise_for :users
+  devise_for :users, controllers: {
+	  registrations: 'users/registrations'
+    }
   resources :users
 
 #=======

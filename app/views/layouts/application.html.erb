@@ -37,15 +37,15 @@
         <li><a class="navbar-brand" href="/"><i class="fa fa-circle-o-notch"></i>ログアウト</a></li>
       </ul>
 
-      
+
       <p class="navbar-text pull-right">
 <% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+  <strong><%= current_user.email %></strong> さん
+  <%= link_to 'ユーザ編集', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 <% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+  <%= link_to "ユーザー登録", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "ログイン", new_user_session_path, :class => 'navbar-link'  %>
 <% end %>
 
 
